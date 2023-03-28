@@ -1,7 +1,6 @@
-import fs from "fs";
-import templates from "@/templates";
 import Handlebars from "handlebars";
 import startOpenAIStream from "@/shared/utils/startOpenAIStream";
+import { getSystemPrompt, getTemplates, getUserPrompt } from "@/shared/network";
 
 function fillTemplate(template, inputs) {
   const compiledTemplate = Handlebars.compile(template);
@@ -10,12 +9,13 @@ function fillTemplate(template, inputs) {
 
 export default async function handler(req, res) {
   const { slug } = req.query;
-  const systemFileData = fs.readFileSync(`src/templates/${slug}/system.md`);
-  const userFileData = fs.readFileSync(`src/templates/${slug}/user.md`);
 
-  const systemPrompt = systemFileData.toString();
+  const [templates, systemPrompt, userPrompt] = await Promise.all([
+    getTemplates(),
+    getSystemPrompt(slug),
+    getUserPrompt(slug),
+  ]);
 
-  const userPrompt = userFileData.toString();
   const template = templates.find((t) => t.slug === slug);
 
   template.systemPrompt = systemPrompt;

@@ -21,9 +21,7 @@ export default async function handler(req, res) {
   template.systemPrompt = systemPrompt;
   template.userPrompt = userPrompt;
 
-  if (req.method === "GET") {
-    res.status(200).json({ success: true, data: template });
-  } else if (req.method === "POST") {
+  if (req.method === "POST") {
     const { inputs, apiKey, options } = req.body;
     const fullMessages = [
       { role: "system", content: fillTemplate(systemPrompt, inputs) },
@@ -33,6 +31,6 @@ export default async function handler(req, res) {
     const stream = await startOpenAIStream(fullMessages, apiKey, options);
     return new Response(stream);
   } else {
-    res.status(404).json({ success: false });
+    res.status(200).json({ success: true, data: template });
   }
 }

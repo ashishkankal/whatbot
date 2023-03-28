@@ -3,23 +3,15 @@ import Navbar from "@/shared/components/Navbar";
 import Head from "next/head";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import toast from "react-hot-toast";
+import templates from "@/templates";
+import fs from "fs";
+import { Toaster } from "react-hot-toast";
 
-const markdown = `You are a virtual evaluator for Python coding questions. Given a question and some code written by a student, your job is to determine whether the code correctly solves the question. If it's correct, simply reply "CORRECT". If it is incorrect, reply "INCORRECT" and in the next few lines, explain why the code is incorrect using bullet points without giving away the answer. Keep your explanations short.
+export default function TemplatePage({ slug, template, markdown }) {
+  if (!template) {
+    return <div>Not Found</div>;
+  }
 
-QUESTION: 
-
-{{question}}
-
-STUDENT'S CODE: 
-
-\`\`\`python
-
-{{student_code}}
-\`\`\`
-
-`;
-
-export default function TemplatePage() {
   return (
     <>
       <Head>
@@ -30,23 +22,37 @@ export default function TemplatePage() {
       </Head>
       <div>
         <Navbar />
-        <Container title="Template">
+        <Container title={template.title}>
+          <div className="my-4 text-base text-gray-500">
+            {template.description}
+          </div>
           <pre className="border rounded-md p-2 bg-gray-50 whitespace-pre-wrap mb-4">
             {markdown}
           </pre>
-          <CopyToClipboard
-            text={markdown}
-            onCopy={() => toast("Copied to clipboard")}
-          >
+          <CopyToClipboard text={markdown}>
             <button
               type="button"
+              onClick={() => toast.success("Copied to clipboard")}
               className="rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
             >
               Copy Template
             </button>
           </CopyToClipboard>
+          <Toaster position="bottom-center" />
         </Container>
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { slug } = context.query;
+  const markdown = fs
+    .readFileSync(`src/templates/leetcode-assistant/prompt.md`)
+    .toString();
+  const template = templates.find((t) => t.slug === slug);
+
+  return {
+    props: { markdown, template, slug },
+  };
 }

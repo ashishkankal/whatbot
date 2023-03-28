@@ -2,11 +2,14 @@ import fs from "fs/promises";
 import templates from "@/templates";
 import Handlebars from "handlebars";
 import startOpenAIStream from "@/shared/utils/startOpenAIStream";
+import path from "path";
 
 function fillTemplate(template, inputs) {
   const compiledTemplate = Handlebars.compile(template);
   return compiledTemplate(inputs);
 }
+
+path.resolve("src/templates/leetcode-assistant/system.md");
 
 export default async function handler(req, res) {
   const { slug } = req.query;

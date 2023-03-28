@@ -4,15 +4,20 @@ import Head from "next/head";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import toast from "react-hot-toast";
 import templates from "@/templates";
-import fs from "fs";
+import fs from "fs/promises";
 import { Toaster } from "react-hot-toast";
 import { readdir } from "fs/promises";
 
-export default function TemplatePage({ slug, template, markdown }) {
+function combinePrompts(systemPrompt, userPrompt) {
+  return `${systemPrompt}\n\n${userPrompt}`;
+}
+
+export default function TemplatePage({ template, systemPrompt, userPrompt }) {
   if (!template) {
     return <div>Not Found</div>;
   }
 
+  const fullPrompt = combinePrompts(systemPrompt, userPrompt);
   return (
     <>
       <Head>
@@ -28,9 +33,9 @@ export default function TemplatePage({ slug, template, markdown }) {
             {template.description}
           </div>
           <pre className="border rounded-md p-2 bg-gray-50 whitespace-pre-wrap mb-4">
-            {markdown}
+            {fullPrompt}
           </pre>
-          <CopyToClipboard text={markdown}>
+          <CopyToClipboard text={fullPrompt}>
             <button
               type="button"
               onClick={() => toast.success("Copied to clipboard")}
@@ -70,12 +75,13 @@ export async function getStaticPaths(context) {
 
 export async function getStaticProps(context) {
   const { slug } = context.params;
-  const markdown = fs
-    .readFileSync(`src/templates/${slug}/prompt.md`)
-    .toString();
+  const systemFileData = await fs.readFile(`src/templates/${slug}/system.md`);
+  const systemPrompt = systemFileData.toString();
+  const userFileData = await fs.readFile(`src/templates/${slug}/user.md`);
+  const userPrompt = userFileData.toString();
   const template = templates.find((t) => t.slug === slug);
 
   return {
-    props: { markdown, template, slug },
+    props: { systemPrompt, userPrompt, template, slug },
   };
 }

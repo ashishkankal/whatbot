@@ -10,6 +10,7 @@ import {
 const prompts = [
   {
     id: 1,
+    slug: "leetcode-assistant",
     name: "LeetCode Assistant",
     description:
       "Your personal programming coach powered by ChatGPT. Just share your solution and get instant feedback on what's going wrong.",
@@ -17,31 +18,35 @@ const prompts = [
   },
   {
     id: 2,
+    slug: "leetcode-assistant",
     name: "Jane Cooper",
     description: "Regional Paradigm Technician",
     icon: BanknotesIcon,
   },
   {
     id: 3,
+    slug: "leetcode-assistant",
     name: "Jane Cooper",
     description: "Regional Paradigm Technician",
     icon: CheckBadgeIcon,
   },
   {
     id: 4,
+    slug: "leetcode-assistant",
     name: "Jane Cooper",
     description: "More changes",
     icon: ClockIcon,
   },
   {
     id: 5,
+    slug: "leetcode-assistant",
     name: "Jane Cooper",
     description: "Regional Paradigm Technician",
     icon: ReceiptRefundIcon,
   },
 ];
 
-export default function PromptGrid() {
+export default function TemplateGrid() {
   return (
     <ul
       role="list"
@@ -63,7 +68,7 @@ export default function PromptGrid() {
                   <prompt.icon className="h-6 w-6" aria-hidden="true" />
                 </span>
               </div>
-              <a href="#">
+              <a href={`/templates/${prompt.slug}`}>
                 <h3 className="truncate text-lg mt-4 font-medium text-gray-900 hover:text-blue-600">
                   {prompt.name}
                 </h3>

@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       ...messages,
     ];
 
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    const resp = await fetch("https://api.openai.com/v1/chat/completions", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
@@ -47,7 +47,7 @@ export default async function handler(req, res) {
       }),
     });
 
-    const resJson = await res.json();
+    const resJson = await resp.json();
 
     console.log("OpenAI Response:", resJson);
 

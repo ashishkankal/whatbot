@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import templates from "@/templates";
 import fs from "fs";
 import { Toaster } from "react-hot-toast";
+import { readdir } from "fs/promises";
 
 export default function TemplatePage({ slug, template, markdown }) {
   if (!template) {
@@ -45,9 +46,15 @@ export default function TemplatePage({ slug, template, markdown }) {
   );
 }
 
+const getDirectories = async (source) =>
+  (await readdir(source, { withFileTypes: true }))
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
+
 export async function getStaticPaths(context) {
+  const dirs = await getDirectories("src/templates/");
   return {
-    paths: [{ params: { slug: "leetcode-assistant" } }],
+    paths: dirs.map((dir) => ({ params: { slug: dir } })),
     fallback: false,
   };
 }

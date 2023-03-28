@@ -27,4 +27,11 @@ export default [
       "Brainstorm creative and attention-grabbing titles for your YouTube videos, to generate more clicks and views.",
     iconUrl: "https://i.imgur.com/0BloXDE.png",
   },
+  {
+    slug: "youtube-shorts-script",
+    title: "YouTube Shorts Script",
+    description:
+      "Save time and increase the chances of your YouTube short going viral by leveraging the power of AI to create content that resonates with your audience.",
+    iconUrl: "https://i.imgur.com/H5M0JsD.png",
+  },
 ];

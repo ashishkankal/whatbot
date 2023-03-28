@@ -1,5 +1,12 @@
 {
   "extends": ["eslint:recommended", "next/babel", "next/core-web-vitals"],
+  "rules": {
+    "react/no-find-dom-node": "off",
+    "@next/next/no-img-element": "off",
+    "@next/next/no-html-link-for-pages": "off",
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "no-undef": "error"
+  },
   "env": {
     "browser": true,
     "node": true,

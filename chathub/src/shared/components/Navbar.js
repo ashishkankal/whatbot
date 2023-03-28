@@ -26,17 +26,20 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden"
-                    src="/logo.png"
-                    alt="Your Company"
-                  />
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src="/logo.png"
-                    alt="Your Company"
-                  />
+                  <a href="/">
+                    <img
+                      className="block h-8 w-auto lg:hidden"
+                      src="/logo.png"
+                      alt="Your Company"
+                    />
+                    <img
+                      className="hidden h-8 w-auto lg:block"
+                      src="/logo.png"
+                      alt="Your Company"
+                    />
+                  </a>
                 </div>
+
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <a
@@ -47,6 +50,7 @@ export default function Navbar() {
                   </a>
                   <a
                     href="https://github.com/JovianHQ/chathub"
+                    target="_blank"
                     className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                   >
                     Contribute
@@ -60,14 +64,15 @@ export default function Navbar() {
             <div className="space-y-1 pt-2 pb-4">
               <Disclosure.Button
                 as="a"
-                href="#"
+                href="/"
                 className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
               >
                 Explore
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="#"
+                href="https://github.com/JovianHQ/chathub"
+                target="_blank"
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
               >
                 About

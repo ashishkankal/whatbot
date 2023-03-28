@@ -1,8 +1,7 @@
 import { createParser } from "eventsource-parser";
-import { OpenAIModel } from "./constants";
 
 DEFAULT_OPTIONS = {
-  model: OpenAIModel.DAVINCI_TURBO,
+  model: "gpt-3.5-turbo",
   max_tokens: 800,
   temperature: 0.8,
   stream: true,

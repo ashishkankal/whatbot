@@ -45,8 +45,15 @@ export default function TemplatePage({ slug, template, markdown }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { slug } = context.query;
+export async function getStaticPaths(context) {
+  return {
+    paths: [{ params: { slug: "leetcode-assistant" } }],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context) {
+  const { slug } = context.params;
   const markdown = fs
     .readFileSync(`src/templates/leetcode-assistant/prompt.md`)
     .toString();

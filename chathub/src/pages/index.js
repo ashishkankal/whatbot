@@ -1,9 +1,9 @@
-import TemplateGrid from "@/modules/explore/components/TemplateGrid";
+import TemplateGrid from "@/shared/components/TemplateGrid";
 import Container from "@/shared/components/Container";
 import Navbar from "@/shared/components/Navbar";
 import Head from "next/head";
 
-export default function Home() {
+export default function Home({ templates }) {
   return (
     <>
       <Head>
@@ -15,9 +15,19 @@ export default function Home() {
       <div>
         <Navbar />
         <Container title="Explore Templates">
-          <TemplateGrid />
+          <TemplateGrid templates={templates} />
         </Container>
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(
+    "https://raw.githubusercontent.com/JovianHQ/chathub/main/chathub/templates/index.json"
+  );
+  const templates = await res.json();
+  return {
+    props: { templates },
+  };
 }

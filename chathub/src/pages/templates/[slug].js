@@ -1,12 +1,10 @@
 import Container from "@/shared/components/Container";
 import Navbar from "@/shared/components/Navbar";
+import { getSystemPrompt, getTemplates, getUserPrompt } from "@/shared/network";
 import Head from "next/head";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import toast from "react-hot-toast";
-import templates from "@/templates";
-import fs from "fs/promises";
 import { Toaster } from "react-hot-toast";
-import { readdir } from "fs/promises";
 
 function combinePrompts(systemPrompt, userPrompt) {
   return `${systemPrompt}\n\n${userPrompt}`;
@@ -60,25 +58,15 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
   );
 }
 
-const getDirectories = async (source) =>
-  (await readdir(source, { withFileTypes: true }))
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
-
-export async function getStaticPaths(context) {
-  const dirs = await getDirectories("src/templates/");
-  return {
-    paths: dirs.map((dir) => ({ params: { slug: dir } })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const { slug } = context.params;
-  const systemFileData = await fs.readFile(`src/templates/${slug}/system.md`);
-  const systemPrompt = systemFileData.toString();
-  const userFileData = await fs.readFile(`src/templates/${slug}/user.md`);
-  const userPrompt = userFileData.toString();
+
+  const [templates, systemPrompt, userPrompt] = await Promise.all([
+    getTemplates(),
+    getSystemPrompt(slug),
+    getUserPrompt(slug),
+  ]);
+
   const template = templates.find((t) => t.slug === slug);
 
   return {

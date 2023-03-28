@@ -1,6 +1,4 @@
-import templates from "@/templates";
-
-export default function TemplateGrid() {
+export default function TemplateGrid({ templates }) {
   return (
     <ul
       role="list"

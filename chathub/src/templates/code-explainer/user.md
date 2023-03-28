@@ -1,9 +1,0 @@
-Language: {{language}}
-
-Code:
-
-```
-
-{{code}}
-
-```

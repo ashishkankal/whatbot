@@ -2,7 +2,6 @@ import fs from "fs";
 import templates from "@/templates";
 import Handlebars from "handlebars";
 import startOpenAIStream from "@/shared/utils/startOpenAIStream";
-import path from "path";
 
 function fillTemplate(template, inputs) {
   const compiledTemplate = Handlebars.compile(template);

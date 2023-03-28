@@ -6,6 +6,6 @@ STUDENT'S CODE:
 
 ```python
 
-{{student_code}}
+{{studentCode}}
 
 ```

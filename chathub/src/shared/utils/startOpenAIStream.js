@@ -1,6 +1,6 @@
 import { createParser } from "eventsource-parser";
 
-DEFAULT_OPTIONS = {
+const DEFAULT_OPTIONS = {
   model: "gpt-3.5-turbo",
   max_tokens: 800,
   temperature: 0.8,

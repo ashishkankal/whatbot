@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import fs from "fs";
 import templates from "@/templates";
 import Handlebars from "handlebars";
 import startOpenAIStream from "@/shared/utils/startOpenAIStream";
@@ -9,13 +9,13 @@ function fillTemplate(template, inputs) {
   return compiledTemplate(inputs);
 }
 
-path.resolve("src/templates/leetcode-assistant/system.md");
-
 export default async function handler(req, res) {
   const { slug } = req.query;
-  const systemFileData = await fs.readFile(`src/templates/${slug}/system.md`);
+  const systemFileData = fs.readFileSync(`src/templates/${slug}/system.md`);
+  const userFileData = fs.readFileSync(`src/templates/${slug}/user.md`);
+
   const systemPrompt = systemFileData.toString();
-  const userFileData = await fs.readFile(`src/templates/${slug}/user.md`);
+
   const userPrompt = userFileData.toString();
   const template = templates.find((t) => t.slug === slug);
 

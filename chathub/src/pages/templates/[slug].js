@@ -39,6 +39,15 @@ export default function TemplatePage({ slug, template, markdown }) {
               Copy Template
             </button>
           </CopyToClipboard>
+
+          <a href="https://chat.openai.com/chat" target="_blank">
+            <button
+              type="button"
+              className=" ml-3 rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            >
+              Open ChatGPT
+            </button>
+          </a>
           <Toaster position="bottom-center" />
         </Container>
       </div>
@@ -62,7 +71,7 @@ export async function getStaticPaths(context) {
 export async function getStaticProps(context) {
   const { slug } = context.params;
   const markdown = fs
-    .readFileSync(`src/templates/leetcode-assistant/prompt.md`)
+    .readFileSync(`src/templates/${slug}/prompt.md`)
     .toString();
   const template = templates.find((t) => t.slug === slug);
 

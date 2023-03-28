@@ -7,17 +7,17 @@ export default [
     iconUrl: "https://i.imgur.com/wEUyNwm.png",
   },
   {
-    slug: "leetcode-assistant",
-    title: "LeetCode Assistant",
+    slug: "mock-interview",
+    title: "Mock Interview",
     description:
-      "Your personal programming coach powered by ChatGPT. Just share your solution and get instant feedback on what's going wrong.",
-    iconUrl: "https://i.imgur.com/wEUyNwm.png",
+      "Simulate an interview for any job position, providing personalized feedback and helping you prepare for your real interview.",
+    iconUrl: "https://i.imgur.com/CRBxvAz.png",
   },
   {
-    slug: "leetcode-assistant",
-    title: "LeetCode Assistant",
+    slug: "code-explainer",
+    title: "Code Explainer",
     description:
-      "Your personal programming coach powered by ChatGPT. Just share your solution and get instant feedback on what's going wrong.",
-    iconUrl: "https://i.imgur.com/wEUyNwm.png",
+      "Breaks down any piece of code and provides a clear explanation of its functionality, helping you understand programming concepts and improve your coding skills. ",
+    iconUrl: "https://i.imgur.com/gznl8L8.png",
   },
 ];

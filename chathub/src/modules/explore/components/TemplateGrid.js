@@ -14,12 +14,12 @@ export default function TemplateGrid() {
           <div className="flex w-full items-center justify-between space-x-6 p-6">
             <div>
               <div>
-                <span className={"inline-flex rounded-lg p-3"}>
-                  <img src={prompt.iconUrl} className="h-6 w-6" />
+                <span className={"inline-flex rounded-lg"}>
+                  <img src={prompt.iconUrl} className="h-8 w-8" />
                 </span>
               </div>
               <a href={`/templates/${prompt.slug}`}>
-                <h3 className="truncate text-lg mt-4 font-medium text-gray-900 hover:text-blue-600">
+                <h3 className="truncate text-lg mt-2 font-medium text-gray-900 hover:text-blue-600">
                   {prompt.title}
                 </h3>
               </a>

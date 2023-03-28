@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   template.userPrompt = userPrompt;
 
   if (req.method === "POST") {
-    const { inputs, apiKey, options } = req.body;
+    const { inputs, apiKey, options, messages = [] } = req.body;
     const fullMessages = [
       { role: "system", content: fillTemplate(systemPrompt, inputs) },
       { role: "user", content: fillTemplate(userPrompt, inputs) },

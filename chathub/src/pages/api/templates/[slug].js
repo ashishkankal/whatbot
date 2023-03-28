@@ -1,5 +1,4 @@
 import Handlebars from "handlebars";
-import startOpenAIStream from "@/shared/utils/startOpenAIStream";
 import { getSystemPrompt, getTemplates, getUserPrompt } from "@/shared/network";
 
 function fillTemplate(template, inputs) {
@@ -35,7 +34,7 @@ export default async function handler(req, res) {
       ...messages,
     ];
 
-    return await fetch("https://api.openai.com/v1/chat/completions", {
+    const res = await fetch("https://api.openai.com/v1/chat/completions", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
@@ -47,6 +46,12 @@ export default async function handler(req, res) {
         ...options,
       }),
     });
+
+    const resJson = await res.json();
+
+    console.log("OpenAI Response:", resJson);
+
+    res.status(200).json(resJson);
   } else {
     res.status(200).json({ success: true, data: template });
   }

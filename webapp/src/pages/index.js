@@ -8,7 +8,7 @@ export default function Home({ templates }) {
   return (
     <>
       <Head>
-        <title>ChatHub | Prompt Templates for GPT-4</title>
+        <title>ChatHub | Prompt Templates for ChatGPT</title>
         <meta name="description" content="Prompts and Apps Powered by GPT-4" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />

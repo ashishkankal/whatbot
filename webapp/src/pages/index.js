@@ -2,6 +2,7 @@ import TemplateGrid from "@/shared/components/TemplateGrid";
 import Container from "@/shared/components/Container";
 import Navbar from "@/shared/components/Navbar";
 import Head from "next/head";
+import { getTemplates } from "@/shared/network";
 
 export default function Home({ templates }) {
   return (
@@ -23,10 +24,7 @@ export default function Home({ templates }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(
-    "https://raw.githubusercontent.com/JovianHQ/chathub/main/chathub/templates/index.json"
-  );
-  const templates = await res.json();
+  const templates = await getTemplates();
   return {
     props: { templates },
   };

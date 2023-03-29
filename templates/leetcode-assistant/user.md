@@ -4,8 +4,10 @@ QUESTION:
 
 STUDENT'S CODE:
 
-```python
+```
 
 {{studentCode}}
 
 ```
+
+PROGRAMMING LANGUAGE: {{language}}

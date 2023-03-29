@@ -16,6 +16,12 @@
         "title": "Your Code",
         "type": "code",
         "placeholder": "Paste your code here"
+      },
+      {
+        "field": "language",
+        "title": "Programming Language",
+        "type": "text",
+        "placeholder": "Enter language here"
       }
     ]
   },
@@ -41,7 +47,7 @@
     "inputs": [
       {
         "field": "language",
-        "title": "Language",
+        "title": "Programming Language",
         "type": "text",
         "placeholder": "Enter language here"
       },

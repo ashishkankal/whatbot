@@ -1,21 +1,30 @@
 import Container from "@/shared/components/Container";
 import Navbar from "@/shared/components/Navbar";
 import { getSystemPrompt, getTemplates, getUserPrompt } from "@/shared/network";
+import mustache from "@/shared/utils/mustache";
 import Head from "next/head";
+import { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
+import { TemplateInput } from "../../shared/components/TemplateInput";
 
 function combinePrompts(systemPrompt, userPrompt) {
   return `${systemPrompt}\n\n${userPrompt}`;
 }
 
 export default function TemplatePage({ template, systemPrompt, userPrompt }) {
+  const [inputData, setInputData] = useState({});
+
+  const fullPrompt = combinePrompts(systemPrompt, userPrompt);
+  const inputs = template.inputs || [];
+  const hasInputs = inputs.length > 0;
+
+  const filledPrompt = hasInputs ? mustache(fullPrompt, inputData) : fullPrompt;
+
   if (!template) {
     return <div>Not Found</div>;
   }
-
-  const fullPrompt = combinePrompts(systemPrompt, userPrompt);
   return (
     <>
       <Head>
@@ -27,19 +36,37 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
       <div>
         <Navbar />
         <Container title={template.title}>
-          <div className="my-4 text-base text-gray-500">
+          <div className="my-4 text-base text-gray-500 max-w-xl text-center mx-auto">
             {template.description}
           </div>
-          <pre className="border rounded-md p-2 bg-gray-50 whitespace-pre-wrap mb-4">
-            {fullPrompt}
+
+          <div>
+            {inputs.map((inputInfo) => (
+              <TemplateInput
+                key={inputInfo.field}
+                {...inputInfo}
+                value={inputData[inputInfo.field]}
+                onChange={(value) =>
+                  setInputData({ ...inputData, [inputInfo.field]: value })
+                }
+              />
+            ))}
+          </div>
+
+          <div className="block text-sm font-medium leading-6 text-gray-900">
+            ChatGPT Message
+          </div>
+
+          <pre className="border rounded-md p-2 bg-gray-50 whitespace-pre-wrap mt-2 mb-4">
+            {filledPrompt}
           </pre>
-          <CopyToClipboard text={fullPrompt}>
+          <CopyToClipboard text={filledPrompt}>
             <button
               type="button"
               onClick={() => toast.success("Copied to clipboard")}
               className="rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
             >
-              Copy Template
+              Copy Message
             </button>
           </CopyToClipboard>
 
@@ -51,6 +78,7 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
               Open ChatGPT
             </button>
           </a>
+
           <Toaster position="bottom-center" />
         </Container>
       </div>

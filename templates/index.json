@@ -23,24 +23,68 @@
     "slug": "mock-interview",
     "title": "Mock Interview",
     "description": "Simulate an interview for any job position, providing personalized feedback and helping you prepare for your real interview.",
-    "iconUrl": "https://i.imgur.com/CRBxvAz.png"
+    "iconUrl": "https://i.imgur.com/CRBxvAz.png",
+    "inputs": [
+      {
+        "field": "position",
+        "title": "Job Role",
+        "type": "text",
+        "placeholder": "Enter job role here"
+      }
+    ]
   },
   {
     "slug": "code-explainer",
     "title": "Code Explainer",
     "description": "Breaks down any piece of code and provides a clear explanation of its functionality, helping you understand programming concepts and improve your coding skills. ",
-    "iconUrl": "https://i.imgur.com/gznl8L8.png"
+    "iconUrl": "https://i.imgur.com/gznl8L8.png",
+    "inputs": [
+      {
+        "field": "language",
+        "title": "Language",
+        "type": "text",
+        "placeholder": "Enter language here"
+      },
+      {
+        "field": "code",
+        "title": "Code",
+        "type": "code",
+        "placeholder": "Paste the code here"
+      }
+    ]
   },
   {
     "slug": "youtube-title-generator",
     "title": "YouTube Title Generator",
     "description": "Brainstorm creative and attention-grabbing titles for your YouTube videos, to generate more clicks and views.",
-    "iconUrl": "https://i.imgur.com/0BloXDE.png"
+    "iconUrl": "https://i.imgur.com/0BloXDE.png",
+    "inputs": [
+      {
+        "field": "description",
+        "title": "Video Description",
+        "type": "textarea",
+        "placeholder": "Enter a description of the video here"
+      },
+      {
+        "field": "ideas",
+        "title": "Initial Title Ideas",
+        "type": "textarea",
+        "placeholder": "Enter some initial title ideas here"
+      }
+    ]
   },
   {
     "slug": "youtube-shorts-script",
     "title": "YouTube Shorts Script",
     "description": "Save time and increase the chances of your YouTube short going viral by leveraging the power of AI to create content that resonates with your audience.",
-    "iconUrl": "https://i.imgur.com/H5M0JsD.png"
+    "iconUrl": "https://i.imgur.com/H5M0JsD.png",
+    "inputs": [
+      {
+        "field": "videoDescription",
+        "title": "Video Description",
+        "type": "textarea",
+        "placeholder": "Enter a description of the video here"
+      }
+    ]
   }
 ]

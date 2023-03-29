@@ -18,7 +18,7 @@ export default function Document() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-G-D22CC4EHE4', {
+            gtag('config', 'G-D22CC4EHE4', {
               page_path: window.location.pathname,
             });
           `,

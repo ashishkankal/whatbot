@@ -83,7 +83,8 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
           </div>
 
           <div className="block text-sm font-medium text-gray-900 mt-4">
-            Copy the message and paste it on ChatGPT to start a conversation.
+            Copy the above message and paste it on ChatGPT to start a
+            conversation.
           </div>
 
           <Toaster position="bottom-center" />

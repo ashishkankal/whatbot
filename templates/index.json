@@ -3,7 +3,21 @@
     "slug": "leetcode-assistant",
     "title": "LeetCode Assistant",
     "description": "Your personal programming coach powered by ChatGPT. Just share your solution and get instant feedback on what's going wrong.",
-    "iconUrl": "https://i.imgur.com/wEUyNwm.png"
+    "iconUrl": "https://i.imgur.com/wEUyNwm.png",
+    "inputs": [
+      {
+        "field": "question",
+        "title": "Question",
+        "type": "textarea",
+        "placeholder": "Paste the question here"
+      },
+      {
+        "field": "studentCode",
+        "title": "Your Code",
+        "type": "code",
+        "placeholder": "Paste your code here"
+      }
+    ]
   },
   {
     "slug": "mock-interview",

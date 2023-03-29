@@ -97,6 +97,7 @@
     "slug": "code-error-debugger",
     "title": "Code Error Debugger",
     "description": "Your personal assistant to quickly diagnose and solve coding errors step-by-step. Get instant help and fix bugs like a pro!",
+    "iconUrl": "https://i.imgur.com/G0rtuky.png",
     "inputs": [
       {
         "field": "language",

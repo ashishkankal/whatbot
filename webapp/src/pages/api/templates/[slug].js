@@ -1,10 +1,5 @@
-import Handlebars from "handlebars";
 import { getSystemPrompt, getTemplates, getUserPrompt } from "@/shared/network";
-
-function fillTemplate(template, inputs) {
-  const compiledTemplate = Handlebars.compile(template);
-  return compiledTemplate(inputs);
-}
+import mustache from "@/shared/utils/mustache";
 
 export default async function handler(req, res) {
   const { slug } = req.query;
@@ -29,8 +24,8 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const { inputs, apiKey, options, messages = [] } = req.body;
     const fullMessages = [
-      { role: "system", content: fillTemplate(systemPrompt, inputs) },
-      { role: "user", content: fillTemplate(userPrompt, inputs) },
+      { role: "system", content: mustache(systemPrompt, inputs) },
+      { role: "user", content: mustache(userPrompt, inputs) },
       ...messages,
     ];
 

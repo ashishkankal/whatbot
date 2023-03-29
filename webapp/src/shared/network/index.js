@@ -1,5 +1,5 @@
 export const TEMPLATES_BASE_URL =
-  "https://raw.githubusercontent.com/JovianHQ/chathub/main/chathub/templates";
+  "https://raw.githubusercontent.com/JovianHQ/chathub/main/templates";
 
 export async function getTemplates() {
   const res = await fetch(`${TEMPLATES_BASE_URL}/index.json`);

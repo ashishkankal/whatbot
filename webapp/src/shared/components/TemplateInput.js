@@ -7,6 +7,7 @@ export const TemplateInput = ({
   type,
   value,
   onChange,
+  options = [],
 }) => {
   switch (type) {
     case "textarea":
@@ -35,6 +36,32 @@ export const TemplateInput = ({
               onChange={(e) => onChange(e.target.value)}
             />
           </div>
+        </div>
+      );
+
+    case "select":
+      return (
+        <div className="mb-4">
+          <label
+            htmlFor={field}
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            {title}
+          </label>
+          <select
+            id={field}
+            name={field}
+            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            value={value || ""}
+            onChange={(e) => onChange(e.target.value)}
+          >
+            <option value="">Select an Option</option>
+            {options.map((op) => (
+              <option key={op} value={op}>
+                {op}
+              </option>
+            ))}
+          </select>
         </div>
       );
 

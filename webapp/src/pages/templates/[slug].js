@@ -28,8 +28,8 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
   return (
     <>
       <Head>
-        <title>ChatHub | Prompt Templates for GPT-4</title>
-        <meta name="description" content="Prompts and Apps Powered by GPT-4" />
+        <title>{template.title} | ChatHub</title>
+        <meta name="description" content={template.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
@@ -57,14 +57,14 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
             ChatGPT Message
           </div>
 
-          <pre className="border rounded-md p-2 bg-gray-50 whitespace-pre-wrap mt-2 mb-4">
+          <pre className="border text-sm rounded-md p-2 bg-gray-50 whitespace-pre-wrap mt-2 mb-4">
             {filledPrompt}
           </pre>
           <CopyToClipboard text={filledPrompt}>
             <button
               type="button"
               onClick={() => toast.success("Copied to clipboard")}
-              className="rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              className="rounded-md  py-2 px-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 bg-blue-500 hover:bg-blue-600 active:bg-blue-700"
             >
               Copy Message
             </button>
@@ -73,7 +73,7 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
           <a href="https://chat.openai.com/chat" target="_blank">
             <button
               type="button"
-              className=" ml-3 rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              className=" ml-3 rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-100"
             >
               Open ChatGPT
             </button>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function TemplateGrid({ templates }) {
   return (
     <ul
@@ -16,11 +18,11 @@ export default function TemplateGrid({ templates }) {
                   <img src={template.iconUrl} className="h-8 w-8" />
                 </span>
               </div>
-              <a href={`/templates/${template.slug}`}>
+              <Link href={`/templates/${template.slug}`}>
                 <h3 className="truncate text-lg mt-2 font-medium text-gray-900 hover:text-blue-600">
                   {template.title}
                 </h3>
-              </a>
+              </Link>
 
               <p className="mt-1 text-gray-500">{template.description}</p>
             </div>

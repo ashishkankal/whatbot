@@ -1,3 +1,4 @@
+import ApiModal from "@/shared/components/ApiModal";
 import Container from "@/shared/components/Container";
 import Navbar from "@/shared/components/Navbar";
 import { getSystemPrompt, getTemplates, getUserPrompt } from "@/shared/network";
@@ -15,6 +16,7 @@ function combinePrompts(systemPrompt, userPrompt) {
 
 export default function TemplatePage({ template, systemPrompt, userPrompt }) {
   const [inputData, setInputData] = useState({});
+  const [showModal, setShowModal] = useState(false);
 
   const fullPrompt = combinePrompts(systemPrompt, userPrompt);
   const inputs = template.inputs || [];
@@ -80,6 +82,14 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
                 Open ChatGPT
               </button>
             </a>
+
+            <button
+              type="button"
+              className=" ml-3 rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-100"
+              onClick={() => setShowModal(true)}
+            >
+              Use as API
+            </button>
           </div>
 
           <div className="block text-sm font-medium text-gray-900 mt-4">
@@ -89,6 +99,7 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
 
           <Toaster position="bottom-center" />
         </Container>
+        <ApiModal open={showModal} setOpen={setShowModal} template={template} />
       </div>
     </>
   );

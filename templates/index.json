@@ -92,5 +92,36 @@
         "placeholder": "Enter a description of the video here"
       }
     ]
+  },
+  {
+    "slug": "code-error-debugger",
+    "title": "Code Error Debugger",
+    "description": "Your personal assistant to quickly diagnose and solve coding errors step-by-step. Get instant help and fix bugs like a pro!",
+    "inputs": [
+      {
+        "field": "language",
+        "title": "Programming Language",
+        "type": "text",
+        "placeholder": "Enter language here"
+      },
+      {
+        "field": "userCode",
+        "title": "Code",
+        "type": "code",
+        "placeholder": "Paste your code here"
+      },
+      {
+        "field": "userError",
+        "title": "Error",
+        "type": "code",
+        "placeholder": "Paste the full error message here"
+      },
+      {
+        "field": "userObjective",
+        "title": "What are you trying to do?",
+        "type": "textarea",
+        "placeholder": "Anything you can share about your objective or goal"
+      }
+    ]
   }
 ]

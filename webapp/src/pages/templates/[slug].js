@@ -60,24 +60,31 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
           <pre className="border text-sm rounded-md p-2 bg-gray-50 whitespace-pre-wrap mt-2 mb-4">
             {filledPrompt}
           </pre>
-          <CopyToClipboard text={filledPrompt}>
-            <button
-              type="button"
-              onClick={() => toast.success("Copied to clipboard")}
-              className="rounded-md  py-2 px-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 bg-blue-500 hover:bg-blue-600 active:bg-blue-700"
-            >
-              Copy Message
-            </button>
-          </CopyToClipboard>
 
-          <a href="https://chat.openai.com/chat" target="_blank">
-            <button
-              type="button"
-              className=" ml-3 rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-100"
-            >
-              Open ChatGPT
-            </button>
-          </a>
+          <div>
+            <CopyToClipboard text={filledPrompt}>
+              <button
+                type="button"
+                onClick={() => toast.success("Copied to clipboard")}
+                className="rounded-md  py-2 px-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 bg-blue-500 hover:bg-blue-600 active:bg-blue-700"
+              >
+                Copy Message
+              </button>
+            </CopyToClipboard>
+
+            <a href="https://chat.openai.com/chat" target="_blank">
+              <button
+                type="button"
+                className=" ml-3 rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:bg-gray-100"
+              >
+                Open ChatGPT
+              </button>
+            </a>
+          </div>
+
+          <div className="block text-sm font-medium text-gray-900 mt-4">
+            Copy the message and paste it on ChatGPT to start a conversation.
+          </div>
 
           <Toaster position="bottom-center" />
         </Container>

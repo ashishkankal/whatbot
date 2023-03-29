@@ -9,7 +9,7 @@ export default function Container({ title, children }) {
         </div>
       </header>
       <main>
-        <div className="mx-auto max-w-4xl sm:px-6 lg:px-8">{children}</div>
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">{children}</div>
       </main>
     </div>
   );

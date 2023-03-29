@@ -9,9 +9,9 @@ export default function Home({ templates }) {
     <>
       <Head>
         <title>WhatBot | Prompt Templates for ChatGPT</title>
-        <meta name="description" content="Prompts and Apps Powered by GPT-4" />
+        <meta name="description" content="Prompts and apps powered by GPT-4" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/whatbot_icon.png" />
       </Head>
       <div>
         <Navbar />

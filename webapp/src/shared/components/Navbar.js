@@ -26,14 +26,14 @@ export default function Navbar() {
                   <div className="flex flex-shrink-0 items-center">
                     <Link href="/">
                       <img
-                        className="block h-8 w-auto lg:hidden"
-                        src="/logo.png"
-                        alt="Your Company"
+                        className="block h-6 w-auto lg:hidden"
+                        src="/whatbot_logo.png"
+                        alt="WhatBot"
                       />
                       <img
-                        className="hidden h-8 w-auto lg:block"
-                        src="/logo.png"
-                        alt="Your Company"
+                        className="hidden h-6 w-auto lg:block"
+                        src="/whatbot_logo.png"
+                        alt="WhatBot"
                       />
                     </Link>
                   </div>

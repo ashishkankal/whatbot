@@ -36,7 +36,7 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
       <div>
         <Navbar />
         <Container title={template.title}>
-          <div className="my-4 text-base text-gray-500 max-w-xl text-center mx-auto">
+          <div className="my-4 text-base text-gray-500 max-w-2xl text-center mx-auto">
             {template.description}
           </div>
 

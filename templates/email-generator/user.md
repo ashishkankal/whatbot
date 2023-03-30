@@ -1,10 +1,9 @@
 SUBJECT:
 
-{{emailSubject}}
+{{subject}}
 
-DESCRIPTION: 
+DESCRIPTION:
 
-{{emailDescription}}
-
+{{description}}
 
 Please write the email!

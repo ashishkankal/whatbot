@@ -16,4 +16,4 @@ Try to follow these guideliens for the email body:
 - Be lovable
 - Use actionable language in your call-to-action
 
-End your message by asking for feedback and offering to modify it as required.
+After writing the email, ask the user for feedback and offer to modify the template as required.

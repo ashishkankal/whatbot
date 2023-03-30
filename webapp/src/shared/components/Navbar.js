@@ -58,12 +58,6 @@ export default function Navbar() {
                     >
                       Blog
                     </Link>
-                    <a
-                      href="https://github.com/JovianHQ/whatbot"
-                      target="_blank"
-                    >
-                      Contribute
-                    </a>
                   </div>
                 </div>
               </div>

@@ -1,14 +1,17 @@
 import ApiModal from "@/shared/components/ApiModal";
 import Container from "@/shared/components/Container";
+import Footer from "@/shared/components/Footer";
 import Navbar from "@/shared/components/Navbar";
 import { getSystemPrompt, getTemplates, getUserPrompt } from "@/shared/network";
 import mustache from "@/shared/utils/mustache";
 import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 import { TemplateInput } from "../../shared/components/TemplateInput";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 function combinePrompts(systemPrompt, userPrompt) {
   return `${systemPrompt}\n\n${userPrompt}`;
@@ -40,6 +43,15 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
         <Container title={template.title}>
           <div className="my-4 sm:text-base text-gray-500 max-w-2xl text-center mx-auto">
             {template.description}
+          </div>
+
+          <div className="mb-4">
+            <Link href="/">
+              <div className="text-sm font-medium flex items-center text-gray-500 hover:text-blue-700 active:text-blue-800">
+                <ArrowLeftIcon className="h-3 w-3 inline" />
+                <div className="ml-1">Back</div>
+              </div>
+            </Link>
           </div>
 
           <div>
@@ -99,6 +111,7 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
 
           <Toaster position="bottom-center" />
         </Container>
+        <Footer />
         <ApiModal open={showModal} setOpen={setShowModal} template={template} />
       </div>
     </>

@@ -35,8 +35,8 @@ export default function TemplatePage({ template, systemPrompt, userPrompt }) {
       <Head>
         <title>{`${template.title} | WhatBot`}</title>
         <meta name="description" content={template.description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/whatbot_icon.png" />
+        <meta name="og:description" content={template.description} />
+        <meta name="og:title" content={template.title} />
       </Head>
       <div>
         <Navbar />

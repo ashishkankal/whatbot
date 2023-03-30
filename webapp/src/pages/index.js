@@ -22,6 +22,13 @@ export default function Home({ templates }) {
           property="og:description"
           content="Get the most out of ChatGPT with carefully crafted and optmized message templates"
         />
+        <meta property="twitter:image" content="/whatbot_meta_image.png" />
+        <meta property="twitter:title" content="WhatBot | ChatGPT Templates" />
+        <meta
+          property="twitter:description"
+          content="Get the most out of ChatGPT with carefully crafted and optmized message templates"
+        />
+        <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
       <div>
         <Navbar />

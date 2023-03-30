@@ -10,9 +10,18 @@ export default function Home({ templates }) {
     <>
       <Head>
         <title>WhatBot | ChatGPT Templates</title>
-        <meta name="description" content="Prompts and apps powered by GPT-4" />
+        <meta
+          name="description"
+          content="Get the most out of ChatGPT with carefully crafted and optmized message templates"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/whatbot_icon.png" />
+        <meta property="og:image" content="/whatbot_meta_image.png" />
+        <meta property="og:title" content="WhatBot | ChatGPT Templates" />
+        <meta
+          property="og:description"
+          content="Get the most out of ChatGPT with carefully crafted and optmized message templates"
+        />
       </Head>
       <div>
         <Navbar />

@@ -114,6 +114,26 @@
     ]
   },
   {
+    "slug": "email-generator",
+    "title": "Email Generator",
+    "description": "Generate professional and personalized emails in seconds. Simply input your message and let AI do the rest.",
+    "iconUrl": "https://i.imgur.com/cUgkLP8.png",
+    "inputs": [
+      {
+        "field": "subject",
+        "title": "Subject",
+        "type": "text",
+        "placeholder": "What is the email about?"
+      },
+      {
+        "field": "description",
+        "title": "Description",
+        "type": "textarea",
+        "placeholder": "Paste your draft, if you have one, just list some bullet points to generate the content of the email"
+      }
+    ]
+  },
+  {
     "slug": "youtube-title-generator",
     "title": "YouTube Title Generator",
     "description": "Brainstorm creative and attention-grabbing titles for your YouTube videos, to generate more clicks and views.",

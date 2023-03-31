@@ -2,6 +2,16 @@ import { getSystemPrompt, getTemplates, getUserPrompt } from "@/shared/network";
 import mustache from "@/shared/utils/mustache";
 
 export default async function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Referer"
+  );
   const { slug } = req.query;
 
   const [templates, systemPrompt, userPrompt] = await Promise.all([
@@ -24,7 +34,7 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     const { inputs, apiKey, options, messages = [] } = req.body;
-    const fullOptions = {...DEFAULT_OPTIONS, ...options};
+    const fullOptions = { ...DEFAULT_OPTIONS, ...options };
     const fullMessages = [
       { role: "system", content: mustache(systemPrompt, inputs) },
       { role: "user", content: mustache(userPrompt, inputs) },

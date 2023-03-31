@@ -114,6 +114,20 @@
     ]
   },
   {
+    "slug": "personal-tutor",
+    "title": "Personal Tutor",
+    "description": "Generates on-demand tutorials on any topic. Use it for quick learning, exam prep or simply satisfying your curiosity.",
+    "iconUrl": "https://i.imgur.com/cUgkLP8.png",
+    "inputs": [
+      {
+        "field": "topic",
+        "title": "Topic",
+        "type": "text",
+        "placeholder": "What do you want to learn about?"
+      }
+    ]
+  },
+  {
     "slug": "email-generator",
     "title": "Email Generator",
     "description": "Generate professional and personalized emails in seconds. Simply input your message and let AI do the rest.",
@@ -130,20 +144,6 @@
         "title": "Description",
         "type": "textarea",
         "placeholder": "Paste your draft, if you have one, just list some bullet points to generate the content of the email"
-      }
-    ]
-  },
-  {
-    "slug": "personal-tutor",
-    "title": "Personal Tutor",
-    "description": "Generates on-demand tutorials on any topic. Use it for quick learning, exam prep or simply satisfying your curiosity.",
-    "iconUrl": "https://i.imgur.com/cUgkLP8.png",
-    "inputs": [
-      {
-        "field": "topic",
-        "title": "Topic",
-        "type": "text",
-        "placeholder": "What do you want to learn about?"
       }
     ]
   },

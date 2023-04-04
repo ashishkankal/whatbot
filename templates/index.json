@@ -59,7 +59,6 @@
       }
     ]
   },
-
   {
     "slug": "code-error-debugger",
     "title": "Code Error Debugger",
@@ -109,7 +108,12 @@
         "title": "Difficulty Level",
         "type": "select",
         "placeholder": "Enter Easy, Medium, or Hard",
-        "options": ["Easy", "Medium", "Hard", "Very Hard"]
+        "options": [
+          "Easy",
+          "Medium",
+          "Hard",
+          "Very Hard"
+        ]
       }
     ]
   },
@@ -180,5 +184,11 @@
         "placeholder": "Enter a description of the video here"
       }
     ]
+  },
+  {
+    "slug": "guess-the-movie",
+    "title": "Guess the Movie",
+    "description": "Guess the movie from the given emojis. Can you guess them all?",
+    "iconUrl": ""
   }
 ]

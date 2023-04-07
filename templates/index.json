@@ -128,6 +128,38 @@
     ]
   },
   {
+    "slug": "cover-letter-generator",
+    "title": "Cover Letter Generator",
+    "description": "Supply your resume and some information about a job role you're applying for and generate a cover letter.",
+    "iconUrl": "https://i.imgur.com/1jVGsuF.png",
+    "inputs": [
+      {
+        "field": "jobRole",
+        "title": "Job Role",
+        "type": "text",
+        "placeholder": "Data Analyst"
+      },
+      {
+        "field": "company",
+        "title": "Company",
+        "type": "text",
+        "placeholder": "IBM"
+      },
+      {
+        "field": "jobResponsibilities",
+        "title": "Job Responsibilities",
+        "type": "textarea",
+        "placeholder": "Paste information from the roles & responsibilities section from the job description here"
+      },
+      {
+        "field": "resume",
+        "title": "Your Resume",
+        "type": "textarea",
+        "placeholder": "Paste relevant information (e.g. education, work experience, projects) from your Resume here"
+      }
+    ]
+  },
+  {
     "slug": "email-generator",
     "title": "Email Generator",
     "description": "Generate professional and personalized emails in seconds. Simply input your message and let AI do the rest.",
